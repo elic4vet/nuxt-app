@@ -54,7 +54,7 @@ async function refreshGraphics() {
 
 async function handleFileChange(event: Event) {
   const file = (event.target as HTMLInputElement)?.files?.[0];
-  if (file && file.size > 500 * 1024) throw new Error("File size must be below 500kb");
+  if (file && file.size > 100 * 1024) throw new Error("File size must be below 100kb");
   const reader = new FileReader();
   reader.onload = () => (form.value.photo = reader.result as string);
   reader.readAsDataURL(file);

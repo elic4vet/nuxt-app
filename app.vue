@@ -27,6 +27,7 @@ const form = useLocalStorage("app-form", {
   greeting: "Happy New Year",
   photo: "",
 });
+
 const svg = ref("");
 const fonts = ref([]);
 

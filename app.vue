@@ -48,7 +48,7 @@ async function loadFonts(fonts) {
                 };
             } catch (e) {
                 console.error(`Failed to load font ${font.name}:`, e);
-                return null; // or a default font
+                return null; 
             }
         })
     ).then((fonts) => fonts.filter((f) => f)); 
@@ -62,14 +62,14 @@ async function refreshGraphics() {
         svg.value = await satori(markup, { width: 1080, height: 1080, fonts: fonts.value });
     } catch (e) {
         console.error("Failed to refresh graphics:", e);
-        svg.value = ""; // Clear the SVG value if rendering fails
+        svg.value = "";
     }
 }
 
 async function handleFileChange(event: Event) {
   const file = (event.target as HTMLInputElement)?.files?.[0];
   if (file && file.size > 100 * 1024) {
-    alert("File size must be below 100kb"); // or set an error message state
+    alert("File size must be below 100kb"); 
     return;
 }
   const reader = new FileReader();
@@ -107,5 +107,9 @@ function downloadSvgAsJpeg(svgString, filename = "image.jpeg") {
 .banner-here svg {
   width: 100%;
   height: 100%;
+}
+
+.aspect-square {
+  padding-top: 100%;
 }
 </style>
